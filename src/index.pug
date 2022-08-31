@@ -1,0 +1,31 @@
+extends /modules/pug/blocks/index
+block pug_javascript
+    -
+        let titulo = "INDEX",
+            formato = "CSS-A-"
+block pug_styles
+    +new_style(`styles.css`)
+block html_javascript
+    +new_script(`scripts.js`)
+block pug_contenido
+    +ejercicios("01","Animaciones básicas")
+    :markdown-it(html)
+        ## Este es un título.
+
+        ## Esto es cóigo de bloque:
+        ```python
+        from manimlib.imports import *
+        self.play(Write("Hola mundo"))
+        ```
+
+        Esto es un `codigo` en linea.
+
+        ## Esta es una fórmula
+        $$\Large
+            \lim_{n\to\infty}\sum_{i=0}^{n}f\left(a+\frac{i(b-a)}{n}\right)\left(\frac{b-a}{n}\right) = \int_a^b f(x)
+        $$
+
+        Esta es una imagen:      
+        ![Ejemplo](./static/i1.png)
+    +img("im1.jpg")
+

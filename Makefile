@@ -39,6 +39,9 @@ clean-all:
 copy-static:
 	cp -r src/static docs/
 
+copy-md:
+	cp -r src/markdown/*.html docs/markdown/
+
 git-init:
 	git init
 	git add .

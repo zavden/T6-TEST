@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "jstransformer-markdown-it": "^3.0.0",
+    "live-server": "^1.2.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.54.7",
+    "typescript": "^4.8.2"
+  }
+}

@@ -1,0 +1,86 @@
+//- include /modules/pug/functions/functions
+-
+    let title = undefined,
+        codepen_user = "zavden"
+mixin codepen(index,height_window=310,user=codepen_user)
+    -let url = codepen_list[index-1]
+    .ejercicio
+        a(href=`https://codepen.io/${user}/pen/${url}`)=`Ejercicio ${index}`
+    p(class="codepen" data-height=`${height_window}` 
+      data-theme-id="default" data-default-tab="css,result" 
+      data-user=user data-slug-hash=`${url}` 
+      style=`height: ${height_window}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`)
+mixin codepen_url(url,text="",height_window=310,user=codepen_user,editable="true")
+    .ejercicio
+        a(href=`https://codepen.io/${user}/pen/${url}`)=`Ejercicio ${text}`
+    p(class="codepen" data-height=`${height_window}` 
+      data-theme-id="default" data-default-tab="css,result" 
+      data-user=user data-slug-hash=`${url}` 
+      style=`height: ${height_window}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`)
+mixin ejercicios(url,nombre="",explicacion="")
+    .ejercicio #[a(href=`ejercicios/ejercicios-${url}.html` class="link-ejercicios")=`Ejercicio ${url}`]#[span=` - ${nombre}`] 
+        p=`${explicacion}`
+mixin new_style(url)
+    link(rel="stylesheet" href=url)
+mixin new_script(url)
+    script(src=url)
+mixin menu_nav(...arr_ejercicios)
+    each ej in arr_ejercicios
+        if ej == nej
+            if title === undefined
+                a(href=`ejercicios-${ej}.html`).remark-ej=`Ej-${ej}`
+            else
+                a(href=`ejercicios-${ej}.html`).remark-ej=`${title}`
+        else
+            if title === undefined
+                a(href=`ejercicios-${ej}.html`)=`Ej-${ej}`
+            else
+                a(href=`ejercicios-${ej}.html`)=`${title}`
+mixin menu_nav_index(...arr_ejercicios)
+    each ej in arr_ejercicios
+        if ej == nej
+            if title === undefined
+                a(href=`ejercicios/ejercicios-${ej}.html`).remark-ej=`Ej-${ej}`
+            else
+                a(href=`ejercicios/ejercicios-${ej}.html`).remark-ej=`${title}`
+        else
+            if title === undefined
+                a(href=`ejercicios/ejercicios-${ej}.html`)=`Ej-${ej}`
+            else
+                a(href=`ejercicios/ejercicios-${ej}.html`)=`${title}`
+mixin html_emb_ej(name,padding="300px")
+    .embed-container(style=`padding-bottom: ${padding};`).html-resize
+        iframe.html-resize(src=`../ejemplos/${name}/` frameborder="0" allowfullscreen)
+mixin html_emb(name,padding="300px")
+    .embed-container(style=`padding-bottom: ${padding};`).html-resize
+        iframe.html-resize(src=name frameborder="0" allowfullscreen)
+mixin img(src)
+    img(src=`./static/${src}` style=`width: 100%`)
+mixin img_path(src)
+    img(src=`${src}` style=`width: 100%`)
+mixin img_e(src)
+    img(src=`../static/${src}` style=`width: 100%`)
+mixin md_emb(number,padding="1000px")
+    .embed-container(style=`padding-bottom: ${padding};`).html-resize
+        iframe.html-resize(src=`../markdown/md-${number}.html` frameborder="0" allowfullscreen)
+
+mixin codepen_live(index,height_window=310,user=codepen_user)
+    -let url = codepen_list[index-1]
+    .ejercicio
+        a(href=`https://codepen.io/${user}/pen/${url}`)=`Ejercicio ${index}`
+    p(class="codepen" data-height=`${height_window}` 
+      data-theme-id="default" data-default-tab="css,result" 
+      data-user=user data-slug-hash=`${url}` 
+      data-editable="true"
+      style=`height: ${height_window}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`)
+mixin codepen_url_live(url,text="",height_window=310,user=codepen_user,editable="true")
+    .ejercicio
+        a(href=`https://codepen.io/${user}/pen/${url}`)=`Ejercicio ${text}`
+    p(class="codepen" data-height=`${height_window}` 
+      data-editable="true"
+      data-theme-id="default" data-default-tab="css,result" 
+      data-user=user data-slug-hash=`${url}` 
+      style=`height: ${height_window}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;`)
+
+
+

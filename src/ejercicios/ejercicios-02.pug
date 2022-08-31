@@ -1,0 +1,62 @@
+extends /modules/pug/blocks/ejercicios
+block pug_javascript
+    -
+        let titulo = "Ejemplo 2",
+            formato = ""
+        let codepen_list = [
+            "vYEPxPX",
+            "BaybRKr",
+        ]
+        nej = 2 // <== EXERCISE NUMBER - REPLACE IT
+block pug_styles
+    +new_style(`../styles.css`)
+block html_javascript
+    +new_script(`../scripts.js`)
+block pug_contenido
+    :markdown-it(html)
+            ## Importados desde markdown.
+            | Option | Description |
+            | ------ | ----------- |
+            | data   | path to data files to supply the data that will be passed into templates aeraer. |
+            | engine | engine to be used for processing templates. Handlebars is the default. |
+            | ext    | extension to be used for dest files. |
+
+            Right aligned columns
+
+            | Option | Description |
+            | ------:| -----------:|
+            | data   | path to data files to supply the data that will be passed into templates. |
+            | engine | engine to be used for processing templates. Handlebars is the default. |
+            | ext    | extension to be used for dest files. |
+
+            ![Ejemplo](../static/im1.jpg)
+            ![Ejemplo](../static/i1.png)
+    hr
+    h1 Importados desde PUG
+    +img_e("im1.jpg")
+    +img_e("i1.png")
+    +html_emb_ej("ej-02")
+    +html_emb_ej("ej-01")
+    :markdown-it(html)
+            ## Importados desde markdown.
+            ![Ejemplo](../static/im1.jpg)
+            ![Ejemplo](../static/i1.png)
+
+            | Option | Description |
+            | ------ | ----------- |
+            | data   | path to data files to supply the data that will be passed into templates aeraer. |
+            | engine | engine to be used for processing templates. Handlebars is the default. |
+            | ext    | extension to be used for dest files. |
+
+            Right aligned columns
+
+            | Option | Description |
+            | ------:| -----------:|
+            | data   | path to data files to supply the data that will be passed into templates. |
+            | engine | engine to be used for processing templates. Handlebars is the default. |
+            | ext    | extension to be used for dest files. |
+//-
+    p=String.raw`$$ x^5 $$`
+    each url in codepen_list
+        +codepen_url(url,`${codepen_list.indexOf(url)+1}`,height_window=600)
+

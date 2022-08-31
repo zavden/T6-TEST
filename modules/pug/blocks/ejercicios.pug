@@ -1,0 +1,30 @@
+include /modules/pug/functions/functions
+include /modules/pug/mixins/mixins
+block pug_javascript
+doctype
+html
+    head
+        title=`${titulo}`
+        include /modules/pug/static/meta_static
+        block pug_styles
+        link(rel="stylesheet" href="../prism/prism.css")
+        link(rel="icon" href="../favicon.ico")
+    body
+        .contenido
+            h1#titulo=`${titulo}`
+            .menu-nav
+                a(href="../index.html")=`Index`
+                +menu_nav(...lista_ejercicios)
+            code.header(style="text-align:center; display:block")
+                a(href="#downer")=`${formato}`
+            block pug_contenido
+            hr
+            code.header(style="text-align:center; display:block")
+                a(href="#titulo")=`${formato}`
+            .menu-nav#downer
+                a(href="../index.html")=`Index`
+                +menu_nav(...lista_ejercicios)
+        block html_javascript
+        include /modules/pug/static/js_static
+        script(src="../prism/prism.js")
+

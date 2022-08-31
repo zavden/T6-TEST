@@ -1,0 +1,26 @@
+include /modules/pug/functions/functions
+include /modules/pug/mixins/mixins
+block pug_javascript
+doctype
+html
+    head
+        title=`${titulo}`
+        include /modules/pug/static/meta_static
+        block pug_styles
+        link(rel="stylesheet" href="prism/prism.css")
+        link(rel="icon" href="favicon.ico")
+    body
+        .contenido
+            h1#titulo=`${titulo}`
+            .menu-nav
+                a(href="#downer").remark-ej=`Index`
+                +menu_nav_index(...lista_ejercicios)
+            block pug_contenido
+            hr
+            .menu-nav#downer
+                a(href="#titulo").remark-ej=`Index`
+                +menu_nav_index(...lista_ejercicios)
+        block html_javascript
+        include /modules/pug/static/js_static
+        script(src="prism/prism.js")
+
